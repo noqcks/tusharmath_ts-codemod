@@ -60,7 +60,7 @@ async function main(): Promise<void> {
       LOG(chalk.white(content))
     }
   }
-  await Promise.all(sourceFiles.map(createSourceFile))
+  await Promise.all(sourceFiles.map((path: string) => createSourceFile(path)))
 }
 
 main().catch(err => {
