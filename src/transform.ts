@@ -1,5 +1,6 @@
 import {curry2} from 'ts-curry'
 import * as ts from 'typescript'
+import * as ts from 'typescript'
 import {Transformation} from '..'
 import {SCRIPT_TARGET} from './script-target'
 const debug = require('debug')('ts-codemod')
@@ -44,9 +45,7 @@ export function transform<Params>(
     })
   ])
   const printer = ts.createPrinter({newLine: ts.NewLineKind.LineFeed})
-  const newContent = printer.printBundle(
-    ts.createBundle(transformed.transformed)
-  )
+  const newContent = printer.printFile(transformed.transformed[0])
 
   const oldContent = ts.createPrinter().printFile(sourceFile)
   transformed.dispose()
