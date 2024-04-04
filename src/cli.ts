@@ -25,7 +25,7 @@ const {write, _: sourceFiles, transformation, params} = yargs
     alias: 'p',
     describe: 'Custom params to the transformation'
   })
-  .help().argv
+  .help().parseSync()
 
 async function main(): Promise<void> {
   // read the config file
